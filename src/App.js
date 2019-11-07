@@ -15,8 +15,6 @@ const transform = distance => (x, y) =>
     Ycoef *
     computeRatioY(distance)}px,0)`;
 
-// const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
-
 const App = ({ alpha, beta }) => {
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
@@ -29,12 +27,7 @@ const App = ({ alpha, beta }) => {
 
   return (
     <div className="page">
-      <div
-        className="parallax"
-        // onMouseMove={({ clientX: x, clientY: y }) => {
-        //   set({ xy: calc(x, y) });
-        // }}
-      >
+      <div className="parallax">
         {Array.from({ length: 10 }, (_, index) => (
           <animated.div
             key={index}
