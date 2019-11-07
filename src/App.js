@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSpring, animated } from "react-spring";
 import { withDeviceOrientation } from "react-fns";
 
@@ -15,7 +15,7 @@ const transform = distance => (x, y) =>
     Ycoef *
     computeRatioY(distance)}px,0)`;
 
-// const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 
 const App = ({ alpha, beta }) => {
   const [props, set] = useSpring(() => ({
@@ -23,17 +23,13 @@ const App = ({ alpha, beta }) => {
     config: { mass: 10, tension: 550, friction: 140 }
   }));
 
-  useEffect(() => {
-    set({ xy: [alpha, 90 - beta] });
-  }, [alpha, beta]);
-
   return (
     <div className="page">
       <div
         className="parallax"
-        // onMouseMove={({ clientX: x, clientY: y }) => {
-        //   set({ xy: calc(x, y) });
-        // }}
+        onMouseMove={({ clientX: x, clientY: y }) => {
+          set({ xy: calc(x, y) });
+        }}
       >
         {Array.from({ length: 10 }, (_, index) => (
           <animated.div
