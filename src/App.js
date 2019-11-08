@@ -15,7 +15,7 @@ const transform = distance => (x, y) =>
     Ycoef *
     computeRatioY(distance)}px,0)`;
 
-const App = ({ alpha, beta }) => {
+const App = ({ alpha, beta, gamma }) => {
   const [ props, set ] = useSpring(() => ({
     xy: [ 0, 0 ],
     config: { mass: 10, tension: 550, friction: 140 }
@@ -49,6 +49,7 @@ const App = ({ alpha, beta }) => {
     <div className="page">
       <div>{`alpha: ${alpha}`}</div>
       <div>{`beta: ${beta}`}</div>
+      <div>{`gamma: ${gamma}`}</div>
       <div className="parallax">
         {Array.from({ length: 10 }, (_, index) => (
           <animated.div
