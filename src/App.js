@@ -26,11 +26,11 @@ const App = ({ alpha, beta, gamma }) => {
       //alpha: range: -30, 30
       // beta: range: 60, 120
       // temp
-      if (alpha > 30) {
-        alpha = 30;
+      if (gamma > 30) {
+        gamma = 30;
       }
-      if (alpha < -30) {
-        alpha = -30;
+      if (gamma < -30) {
+        gamma = -30;
       }
 
       if (beta < 60) {
@@ -40,9 +40,9 @@ const App = ({ alpha, beta, gamma }) => {
         beta = 120;
       }
 
-      set({ xy: [ alpha, beta - 90 ] });
+      set({ xy: [ gamma, beta - 90 ] });
     },
-    [ alpha, beta ]
+    [ gamma, beta ]
   );
 
   return (
