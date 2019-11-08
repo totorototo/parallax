@@ -23,12 +23,21 @@ const App = ({ alpha, beta }) => {
 
   useEffect(
     () => {
+      //alpha: range: -30, 30
+      // beta: range: 60, 120
       // temp
       if (alpha > 30) {
         alpha = 30;
       }
       if (alpha < -30) {
         alpha = -30;
+      }
+
+      if (beta < 60) {
+        beta = 60;
+      }
+      if (beta > 120) {
+        beta = 120;
       }
 
       set({ xy: [ alpha, beta - 90 ] });
